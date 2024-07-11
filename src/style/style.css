@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "SUIT";
+  src: url("/public/SUIT-Variable.ttf") format("truetype");
+}
+
+body {
+  font-family: "SUIT", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
