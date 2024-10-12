@@ -86,6 +86,10 @@ input {
   box-sizing: border-box;
 }
 
+* {
+  font-family: "SUIT", sans-serif;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
