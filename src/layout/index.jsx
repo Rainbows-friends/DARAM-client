@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import Header from "../components/Header";
 
 function Layout({ children }) {
   return (
     <>
-      {/* 헤더 들어갈 자리 */}
+      <Header />
       {children}
     </>
   );
