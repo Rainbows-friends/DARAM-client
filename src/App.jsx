@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Main from "./pages/Main";
+import Home from "./pages/Home";
 import CheckIn from "./pages/CheckIn";
 import NoShow from "./pages/NoShow";
 import Notice from "./pages/Notice";
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Home />} />
           <Route path="/checkin" element={<CheckIn />} />
           <Route path="/noshow" element={<NoShow />} />
           <Route path="/notice" element={<Notice />} />
