@@ -10,6 +10,7 @@ export const Wrapper = styled.header`
   background-color: #111214;
   position: sticky;
   top: 0;
+  z-index: 1;
 `;
 
 export const Container = styled.nav`
