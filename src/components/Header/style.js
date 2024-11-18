@@ -11,7 +11,7 @@ export const Wrapper = styled.header`
   background-color: rgba(17, 18, 20, 0.2);
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const Container = styled.nav`
