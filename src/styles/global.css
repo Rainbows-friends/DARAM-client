@@ -87,6 +87,10 @@ input {
   font-family: SUIT;
 }
 
+body {
+  background-color: #111214;
+}
+
 body::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: none;
