@@ -1,11 +1,22 @@
 import CheckIn from "../../components/CheckIn";
 import Dashboard from "../../components/Dashboard";
 import Circle from "../../components/Circle";
+import Character from "../../components/Character";
+import junyeon from "../../asset/junyeon.svg";
+import yeojin from "../../asset/yeojin.svg";
+import euna from "../../asset/euna.svg";
+import minsol from "../../asset/minsol.svg";
+import myunghyun from "../../asset/myunghyun.svg";
+import taeeun from "../../asset/taeeun.svg";
 import * as S from "./style";
 
 function Home() {
   return (
     <S.Wrapper>
+      <S.Container>
+        <CheckIn />
+        <Dashboard />
+      </S.Container>
       <Circle
         size="25rem"
         color="linear-gradient(152deg, #70E249 15.9%, #477E34 90.38%)"
@@ -42,10 +53,42 @@ function Home() {
         top="67.25rem"
         left="105rem"
       />
-      <S.Container>
-        <CheckIn />
-        <Dashboard />
-      </S.Container>
+      <Character
+        src={junyeon}
+        alt="Junyeon"
+        initialTop="62.8125rem"
+        initialLeft="18.875rem"
+      />
+      <Character
+        src={yeojin}
+        alt="yeojin"
+        initialTop="79.75rem"
+        initialLeft="26.6875rem"
+      />
+      <Character
+        src={euna}
+        alt="euna"
+        initialTop="77.375rem"
+        initialLeft="48.125rem"
+      />
+      <Character
+        src={minsol}
+        alt="minsol"
+        initialTop="89.8125rem"
+        initialLeft="65.875rem"
+      />
+      <Character
+        src={myunghyun}
+        alt="myunghyun"
+        initialTop="60.125rem"
+        initialLeft="73.6875rem"
+      />
+      <Character
+        src={taeeun}
+        alt="taeeun"
+        initialTop="77.375rem"
+        initialLeft="93.5rem"
+      />
     </S.Wrapper>
   );
 }
