@@ -7,9 +7,11 @@ export const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #111214;
+  backdrop-filter: blur(10px);
+  background-color: rgba(17, 18, 20, 0.2);
   position: sticky;
   top: 0;
+  z-index: 2;
 `;
 
 export const Container = styled.nav`

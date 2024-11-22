@@ -5,7 +5,7 @@ function Header() {
   const location = useLocation();
 
   const links = [
-    { path: "/", label: "메인화면" },
+    { path: "/home", label: "메인화면" },
     { path: "/checkin", label: "입실 현황" },
     { path: "/noshow", label: "미입실자 현황" },
     { path: "/notice", label: "공지" },
