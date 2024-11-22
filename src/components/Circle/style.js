@@ -11,4 +11,5 @@ export const Circle = styled.div`
   position: absolute;
   top: ${(props) => props.top || "0"};
   left: ${(props) => props.left || "0"};
+  z-index: 0;
 `;

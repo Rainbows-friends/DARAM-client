@@ -18,4 +18,5 @@ export const Container = styled.div`
   align-items: center;
   position: absolute;
   top: 153px;
+  z-index: 1;
 `;
