@@ -1,8 +1,6 @@
 import CheckIn from "../../components/CheckIn";
 import Dashboard from "../../components/Dashboard";
 import Circle from "../../components/Circle";
-import Junyeon from "../../asset/Junyeon.svg";
-import Character from "../../components/Character";
 import * as S from "./style";
 
 function Home() {
@@ -44,7 +42,6 @@ function Home() {
         top="67.25rem"
         left="105rem"
       />
-      <Character src={Junyeon} alt="Junyeon" />
       <S.Container>
         <CheckIn />
         <Dashboard />
