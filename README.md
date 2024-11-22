@@ -1,8 +1,18 @@
-# React + Vite
+# DARAM-client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Design: 김민솔<br/>
+Front-End: 주여진, 전준연
 
-Currently, two official plugins are available:
+<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Commit Message Rule
+| 타입     | 설명
+|----------|------------------------------------
+| feat     | 새로운 기능 추가
+| fix      | 버그 수정
+| docs     | 문서 관련 변경
+| style    | 코드 포맷팅, 세미콜론 누락 등
+| refactor | 코드 리팩토링
+| perf     | 성능 개선
+| test     | 테스트 추가 또는 수정
+| chore    | 빌드 과정이나 보조 도구 변경
