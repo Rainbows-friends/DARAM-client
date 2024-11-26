@@ -4,13 +4,13 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Home from "./pages/Home";
-import CheckIn from "./pages/CheckIn";
-import NoShow from "./pages/NoShow";
-import Notice from "./pages/Notice";
-import Layout from "./layout";
-import "./styles/global.css";
-import "./styles/fonts.css";
+import Home from "@pages/Home";
+import CheckIn from "@pages/CheckIn";
+import NoShow from "@pages/NoShow";
+import Notice from "@pages/Notice";
+import Layout from "@layout";
+import "@styles/global.css";
+import "@styles/fonts.css";
 
 function App() {
   return (

@@ -1,13 +1,13 @@
-import CheckIn from "../../components/CheckIn";
-import Dashboard from "../../components/Dashboard";
-import Circle from "../../components/Circle";
-import Character from "../../components/Character";
-import junyeon from "../../asset/junyeon.svg";
-import yeojin from "../../asset/yeojin.svg";
-import euna from "../../asset/euna.svg";
-import minsol from "../../asset/minsol.svg";
-import myunghyun from "../../asset/myunghyun.svg";
-import taeeun from "../../asset/taeeun.svg";
+import CheckIn from "@components/CheckIn";
+import Dashboard from "@components/Dashboard";
+import Circle from "@components/Circle";
+import Character from "@components/Character";
+import junyeon from "@assets/junyeon.svg";
+import yeojin from "@assets/yeojin.svg";
+import euna from "@assets/euna.svg";
+import minsol from "@assets/minsol.svg";
+import myunghyun from "@assets/myunghyun.svg";
+import taeeun from "@assets/taeeun.svg";
 import * as S from "./style";
 
 function Home() {
