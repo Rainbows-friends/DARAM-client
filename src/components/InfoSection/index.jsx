@@ -1,4 +1,4 @@
-import ArrowIcon from "../../asset/arrow.svg";
+import ArrowIcon from "@assets/arrow.svg";
 import * as S from "./style";
 
 function InfoSection({ text, path }) {
