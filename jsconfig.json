@@ -6,7 +6,9 @@
       "@assets/*": ["assets/*"],
       "@pages/*": ["pages/*"],
       "@layout/*": ["layout/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@api/*": ["api/*"],
+      "@data/*": ["data/*"]
     }
   },
   "include": ["src"]
