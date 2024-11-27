@@ -8,13 +8,42 @@ import euna from "@assets/euna.svg";
 import minsol from "@assets/minsol.svg";
 import myunghyun from "@assets/myunghyun.svg";
 import taeeun from "@assets/taeeun.svg";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import * as S from "./style";
 
 function Home() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          import.meta.env.VITE_REMAIN_TIME_API_URL
+        );
+        setData(response.data);
+      } catch (error) {
+        setError("Failed to load data");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 1000); // 1000ms = 1초
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <S.Wrapper>
       <S.Container>
-        <CheckIn />
+        <CheckIn time={data} loading={loading} error={error} />
         <Dashboard />
       </S.Container>
       <Circle
