@@ -44,3 +44,14 @@ export const Text = styled.p`
   font-size: ${({ fontSize }) => fontSize || "16px"};
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
 `;
+
+export const LoginBtn = styled.button`
+  display: flex;
+  width: 6.25rem;
+  height: 40px;
+  padding: 6px 28px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #414141;
+`;
