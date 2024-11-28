@@ -1,18 +1,19 @@
 import * as S from "./style";
 
 function CheckIn({ time, loading, error }) {
-  const renderTime = () => {
-    if (loading) return "로딩 중...";
-    if (error) return "에러...";
-    if (!time) return "시간 정보 없음";
-    return `${time.hours}h${time.minutes}m${time.seconds}s`;
-  };
+  const renderTime = loading
+    ? "로딩 중..."
+    : error
+    ? "서버 에러"
+    : time
+    ? `${time.remainTime}`
+    : "시간 정보 없음";
 
   return (
     <S.Wrapper>
       <div>
         <S.Title>DARAM</S.Title>
-        <S.Time>{renderTime()}</S.Time>
+        <S.Time>{renderTime}</S.Time>
       </div>
       <S.MyStatus>
         <S.RoomNumber>
