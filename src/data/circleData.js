@@ -1,4 +1,3 @@
-// circleData.js
 export const circleData = [
   {
     size: "25rem",

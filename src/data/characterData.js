@@ -1,4 +1,3 @@
-// src/data/CharacterData.js
 import junyeon from "@assets/junyeon.svg";
 import yeojin from "@assets/yeojin.svg";
 import euna from "@assets/euna.svg";
