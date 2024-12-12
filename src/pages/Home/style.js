@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.div`
   width: 100%;
-  height: 1923px;
+  height: 120.1875rem;
   background-color: #111214;
   color: white;
   display: flex;
@@ -13,10 +13,10 @@ export const Wrapper = styled.main`
 `;
 
 export const Container = styled.div`
-  width: 66.25rem;
+  width: fit-content;
   display: flex;
   align-items: center;
   position: absolute;
-  top: 153px;
+  top: 9.5625rem;
   z-index: 1;
 `;
