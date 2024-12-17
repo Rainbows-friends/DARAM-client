@@ -54,4 +54,8 @@ export const LoginBtn = styled.button`
   align-items: center;
   border-radius: 8px;
   background: #414141;
+
+  &:hover {
+    background-color: rgba(65, 65, 65, 0.7);
+  }
 `;
