@@ -7,6 +7,7 @@ import { characterData } from "@data/characterData";
 import { circleData } from "@data/circleData";
 import axios from "axios";
 import * as S from "./style";
+import Header from "@components/Header";
 
 function Home() {
   const [data, setData] = useState(null);
@@ -38,6 +39,7 @@ function Home() {
 
   return (
     <S.Wrapper>
+      <Header />
       <S.Container>
         <CheckIn time={data} loading={loading} error={error} />
         <Dashboard />
