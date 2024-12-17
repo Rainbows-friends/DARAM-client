@@ -9,7 +9,11 @@ function LoginModal({ onClose }) {
     }
   };
   const handleGoogleLogin = () => {
-    window.location.href = import.meta.env.VITE_GOOGLE_OAUTH_URL;
+    try {
+      window.location.href = import.meta.env.VITE_GOOGLE_OAUTH_URL;
+    } catch (error) {
+      console.error("로그인 처리 중 오류가 발생했습니다:", error);
+    }
   };
 
   return (
