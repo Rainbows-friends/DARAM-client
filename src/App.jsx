@@ -8,6 +8,7 @@ import Home from "@pages/Home";
 import CheckIn from "@pages/CheckIn";
 import NoShow from "@pages/NoShow";
 import Notice from "@pages/Notice";
+import Callback from "@pages/Callback";
 import "@styles/global.css";
 import "@styles/fonts.css";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/checkin" element={<CheckIn />} />
         <Route path="/noshow" element={<NoShow />} />
         <Route path="/notice" element={<Notice />} />
+        <Route path="/login/oauth2/code/google" element={<Callback />} />
       </Routes>
     </Router>
   );
