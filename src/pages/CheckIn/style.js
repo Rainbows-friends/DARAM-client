@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 73px);
   background-color: #111214;
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 `;
 
 export const Container = styled.div`
@@ -18,5 +18,5 @@ export const Container = styled.div`
   gap: 1.5rem;
   flex-wrap: wrap;
   position: relative;
-  top: 1.625rem;
+  top: 2rem;
 `;
