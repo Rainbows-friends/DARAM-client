@@ -17,13 +17,10 @@ function Callback() {
       }
 
       try {
-        const response = await axios.post(
-          "https://amond-server.kro.kr/api/v2/auth/signin",
-          {
-            header: {},
-            body: { code },
-          }
-        );
+        const response = await axios.post(import.meta.env.VITE_SIGNIN_API_URL, {
+          header: {},
+          body: { code },
+        });
 
         const { token } = response.data;
 
