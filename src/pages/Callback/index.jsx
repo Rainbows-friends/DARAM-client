@@ -4,10 +4,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// 환경 변수와 상수를 분리
-const SIGNIN_API_URL = import.meta.env.VITE_SIGNIN_API_URL;
-
-// 토큰 저장 로직
 const saveTokensToLocalStorage = ({
   accessToken,
   refreshToken,
@@ -37,9 +33,8 @@ function Callback() {
           return;
         }
 
-        // 서버로 인증 코드 전송
         const response = await axios.post(
-          SIGNIN_API_URL,
+          import.meta.env.VITE_SIGNIN_API_URL,
           { code: decodeURIComponent(code) },
           { headers: { "Content-Type": "application/json" } }
         );
