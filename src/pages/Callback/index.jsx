@@ -34,7 +34,6 @@ function Callback() {
           }
         );
 
-        // 응답에서 필요한 데이터 추출
         const {
           accessToken,
           refreshToken,
@@ -44,12 +43,11 @@ function Callback() {
         } = response.data.body;
 
         if (accessToken && refreshToken) {
-          // localStorage에 토큰 저장
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
           localStorage.setItem("accessTokenExpiresIn", accessTokenExpiresIn);
           localStorage.setItem("refreshTokenExpiresIn", refreshTokenExpiresIn);
-          localStorage.setItem("role", JSON.stringify(role)); // 배열이므로 문자열로 변환해서 저장
+          localStorage.setItem("role", JSON.stringify(role));
 
           toast.success("로그인 되었습니다.");
           navigate("/home");
@@ -59,15 +57,21 @@ function Callback() {
         }
       } catch (error) {
         if (error.response) {
+          // 서버에서 응답이 있는 경우
           toast.error(
             `로그인 실패: ${
               error.response.data.message || "서버 오류가 발생했습니다"
             }`
           );
+          console.error("Response error:", error.response);
         } else if (error.request) {
+          // 서버에 요청을 보냈지만 응답을 받지 못한 경우
           toast.error("서버에 연결할 수 없습니다");
+          console.error("Request error:", error.request);
         } else {
+          // 요청 중 발생한 오류
           toast.error("요청 중 오류가 발생했습니다");
+          console.error("Error message:", error.message);
         }
         navigate("/home");
       }
