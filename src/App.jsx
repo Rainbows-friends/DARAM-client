@@ -7,7 +7,7 @@ import {
 import Home from "@pages/Home";
 import CheckIn from "@pages/CheckIn";
 import NoShow from "@pages/NoShow";
-import Notice from "@pages/Notice";
+import Team from "@pages/Team";
 import Callback from "@pages/Callback";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,7 +24,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/checkin" element={<CheckIn />} />
           <Route path="/noshow" element={<NoShow />} />
-          <Route path="/notice" element={<Notice />} />
+          <Route path="/Team" element={<Team />} />
           <Route path="/login/oauth2/code/google" element={<Callback />} />
         </Routes>
       </Router>

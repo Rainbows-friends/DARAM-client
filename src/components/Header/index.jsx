@@ -8,7 +8,7 @@ function Header() {
     { path: "/home", label: "메인화면" },
     { path: "/checkin", label: "입실 현황" },
     { path: "/noshow", label: "미입실자 현황" },
-    { path: "/notice", label: "공지" },
+    { path: "/team", label: "팀소개" },
   ];
 
   return (
