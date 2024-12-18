@@ -4,7 +4,7 @@ import Circle from "@components/Circle";
 import Character from "@components/Character";
 import { useEffect, useState } from "react";
 import { characterData } from "@data/characterData";
-import { circleData } from "@data/circleData";
+import { circleDataHome } from "@data/circleDataHome";
 import axios from "axios";
 import * as S from "./style";
 import Header from "@components/Header";
@@ -44,7 +44,7 @@ function Home() {
         <CheckIn time={data} loading={loading} error={error} />
         <Dashboard />
       </S.Container>
-      {circleData.map((circle, index) => (
+      {circleDataHome.map((circle, index) => (
         <Circle
           key={index}
           size={circle.size}
