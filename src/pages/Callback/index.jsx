@@ -22,15 +22,10 @@ function Callback() {
       code = decodeURIComponent(code);
 
       try {
-        const response = await axios.post(
-          import.meta.env.VITE_SIGNIN_API_URL,
-          { code },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await axios.post(import.meta.env.VITE_SIGNIN_API_URL, {
+          header: {},
+          body: { code },
+        });
 
         const { token } = response.data;
 
