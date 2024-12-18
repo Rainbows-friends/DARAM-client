@@ -41,7 +41,7 @@ function Callback() {
 
         console.log("Response data:", response);
 
-        const tokens = response.data.body;
+        const tokens = response.data;
 
         if (tokens.accessToken && tokens.refreshToken) {
           saveTokensToLocalStorage(tokens);
