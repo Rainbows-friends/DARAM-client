@@ -39,6 +39,8 @@ function Callback() {
           { headers: { "Content-Type": "application/json" } }
         );
 
+        console.log("Response data:", response);
+
         const tokens = response.data.body;
 
         if (tokens.accessToken && tokens.refreshToken) {
