@@ -10,6 +10,7 @@ import NoShow from "@pages/NoShow";
 import Notice from "@pages/Notice";
 import Callback from "@pages/Callback";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "@styles/global.css";
 import "@styles/fonts.css";
 

@@ -22,10 +22,15 @@ function Callback() {
       code = decodeURIComponent(code);
 
       try {
-        const response = await axios.post(import.meta.env.VITE_SIGNIN_API_URL, {
-          header: {},
-          body: { code },
-        });
+        const response = await axios.post(
+          import.meta.env.VITE_SIGNIN_API_URL,
+          { code },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const { token } = response.data;
 
@@ -38,7 +43,17 @@ function Callback() {
           navigate("/home");
         }
       } catch (error) {
-        toast.error("서버 통신 오류");
+        if (error.response) {
+          toast.error(
+            `로그인 실패: ${
+              error.response.data.message || "서버 오류가 발생했습니다"
+            }`
+          );
+        } else if (error.request) {
+          toast.error("서버에 연결할 수 없습니다");
+        } else {
+          toast.error("요청 중 오류가 발생했습니다");
+        }
         navigate("/home");
       }
     };
