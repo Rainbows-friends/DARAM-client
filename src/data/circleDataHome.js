@@ -1,4 +1,4 @@
-export const circleData = [
+export const circleDataHome = [
   {
     size: "25rem",
     color: "linear-gradient(152deg, #70E249 15.9%, #477E34 90.38%)",
