@@ -34,10 +34,23 @@ function Callback() {
           }
         );
 
-        const { token } = response.data;
+        // 응답에서 필요한 데이터 추출
+        const {
+          accessToken,
+          refreshToken,
+          accessTokenExpiresIn,
+          refreshTokenExpiresIn,
+          role,
+        } = response.data.body;
 
-        if (token) {
-          localStorage.setItem("token", token);
+        if (accessToken && refreshToken) {
+          // localStorage에 토큰 저장
+          localStorage.setItem("accessToken", accessToken);
+          localStorage.setItem("refreshToken", refreshToken);
+          localStorage.setItem("accessTokenExpiresIn", accessTokenExpiresIn);
+          localStorage.setItem("refreshTokenExpiresIn", refreshTokenExpiresIn);
+          localStorage.setItem("role", JSON.stringify(role)); // 배열이므로 문자열로 변환해서 저장
+
           toast.success("로그인 되었습니다.");
           navigate("/home");
         } else {
