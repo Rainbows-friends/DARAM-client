@@ -68,6 +68,15 @@ function Team() {
           />
         ))}
       </S.Mid>
+
+      <S.Bottom>
+        <S.Phrase>
+          “The reason why developers like dark mode is because it is their future”
+          <br />
+          -T.E-
+        </S.Phrase>
+        <S.PhraseWrapper />
+      </S.Bottom>
     </S.Wrapper>
   );
 }
