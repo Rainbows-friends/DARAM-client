@@ -29,7 +29,7 @@ export const Mid = styled.div`
 
 export const TextWrapper = styled.div`
   position: absolute;
-  top: 285px;
+  top: 320px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -47,4 +47,18 @@ export const Text = styled.p`
 
 export const Green = styled.span`
   color: #59ff00;
+`;
+
+export const DownArrow = styled.img`
+  position: absolute;
+  top: 760px;
+  animation: bounce 1s infinite normal;
+
+  @keyframes bounce {
+    0% {}
+    50%{
+      transform: translateY(-15px);
+    }
+    100%{}
+  }
 `;

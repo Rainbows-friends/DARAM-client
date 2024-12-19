@@ -26,11 +26,7 @@ function Team() {
             <S.Green>DARAM</S.Green>이 기숙사 자치위원회의 업무를 줄이고,학생들에게 편리한 기숙사 생활을 제공하겠습니다.
           </S.Text>
         </S.TextWrapper>
-        <img
-          src={downarrow}
-          alt=""
-          style={{ position: "absolute", top: "750px" }}
-        />
+        <S.DownArrow src={downarrow} alt="" />
       </S.Top>
     </S.Wrapper>
   );
