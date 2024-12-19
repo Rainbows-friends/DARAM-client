@@ -1,9 +1,9 @@
 import * as S from "./style";
-import Header from "../../components/Header";
-import Circle from "../../components/Circle";
+import Header from "@components/Header";
+import Circle from "@components/Circle";
 import Character from "@components/Character";
 import IntroductionBox from "@components/IntroductionBox";
-import { circleDataTeam } from "../../data/circleDataTeam";
+import { circleDataTeam } from "@data/circleDataTeam";
 import { circleDataIntroduction } from "@data/circleDataIntroduction";
 import { characterDataIntroduction } from "@data/characterDataIntroduction";
 import { introductionData } from "@data/IntroductionData";
