@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
+  flex-direction: column;
   position: relative;
 `;
 
@@ -22,6 +23,8 @@ export const Top = styled.div`
 
 export const Mid = styled.div`
   width: 100%;
+  height: 1509px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,9 +41,7 @@ export const TextWrapper = styled.div`
 export const Text = styled.p`
   color: #FAFAFA;
   text-align: right;
-  font-family: SUIT;
   font-size: 40px;
-  font-style: normal;
   font-weight: 900;
   line-height: 55px;
 `;
@@ -61,4 +62,13 @@ export const DownArrow = styled.img`
     }
     100%{}
   }
+`;
+
+export const MidTittle = styled.p`
+  color: #FAFAFA;
+  text-align: center;
+  position: absolute;
+  top: 80px;
+  font-size: 36px;
+  font-weight: 900;
 `;

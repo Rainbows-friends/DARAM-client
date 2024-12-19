@@ -1,13 +1,19 @@
 import * as S from "./style";
 import Header from "../../components/Header";
 import Circle from "../../components/Circle";
+import Character from "@components/Character";
+import IntroductionBox from "@components/IntroductionBox";
 import { circleDataTeam } from "../../data/circleDataTeam";
+import { circleDataIntroduction } from "@data/circleDataIntroduction";
+import { characterDataIntroduction } from "@data/characterDataIntroduction";
+import { introductionData } from "@data/IntroductionData";
 import downarrow from "@assets/downarrow.svg";
 
 function Team() {
   return (
     <S.Wrapper>
       <Header />
+
       <S.Top>
         {circleDataTeam.map((data, index) => (
           <Circle
@@ -28,6 +34,40 @@ function Team() {
         </S.TextWrapper>
         <S.DownArrow src={downarrow} alt="" />
       </S.Top>
+      
+      <S.Mid>
+        <S.MidTittle>“Who Made This”</S.MidTittle>
+        {circleDataIntroduction.map((data, index) => (
+          <Circle 
+            key={index}
+            size={data.size}
+            color={data.color}
+            left={data.left}
+            top={data.top}
+          />
+        ))}
+        {characterDataIntroduction.map((data, index) => (
+          <Character 
+            key={index}
+            src={data.src}
+            alt={data.alt}
+            initialTop={data.top}
+            initialLeft={data.left}
+            width="200px"
+            drag={false}
+          />
+        ))}
+        {introductionData.map((data, index) => (
+          <IntroductionBox 
+            key={index}
+            name={data.name}
+            major={data.major}
+            color={data.color}
+            top={data.top}
+            left={data.left}
+          />
+        ))}
+      </S.Mid>
     </S.Wrapper>
   );
 }
