@@ -60,6 +60,7 @@ function Home() {
           alt={char.alt}
           initialTop={char.top}
           initialLeft={char.left}
+          drag={true}
         />
       ))}
     </S.Wrapper>
