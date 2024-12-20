@@ -1,4 +1,5 @@
 import * as S from "./style";
+import { useEffect } from "react";
 import { SectionsContainer, Section } from "react-fullpage";
 import Header from "@components/Header";
 import Circle from "@components/Circle";
@@ -18,11 +19,12 @@ function Team() {
     verticalAlign: true,
     fitToSection: true,
   };
+
   return (
     <S.Wrapper>
       <Header />
-      <SectionsContainer {...options} style={{ width: "100vw"}}>
-        <Section style={{ width: "100vw"}}>
+      <SectionsContainer {...options}>
+        <Section>
           <S.Top>
             {circleDataTeam.map((data, index) => (
               <Circle
@@ -34,11 +36,11 @@ function Team() {
               />
             ))}
             <S.TextWrapper>
-              <S.Text style={{ fontSize: "40px" }} fontSize="40px">
+              <S.Text>
                 기숙사 입실 확인, 이제 <S.Green>AI 얼굴 인식</S.Green>으로
                 자동화!
               </S.Text>
-              <S.Text style={{ fontSize: "32px" }} fontSize="32px">
+              <S.Text style={{ fontSize: "32px" }}>
                 <S.Green>DARAM</S.Green>이 기숙사 자치위원회의 업무를
                 줄이고,학생들에게 편리한 기숙사 생활을 제공하겠습니다.
               </S.Text>
@@ -47,7 +49,7 @@ function Team() {
           </S.Top>
         </Section>
 
-        <Section style={{ width: "100vw"}}>
+        <Section>
           <S.Mid>
             <S.MidTittle>“Who Made This”</S.MidTittle>
             {circleDataIntroduction.map((data, index) => (
@@ -83,7 +85,7 @@ function Team() {
           </S.Mid>
         </Section>
 
-        <Section style={{ width: "100vw"}}>
+        <Section>
           <S.Bottom>
             <S.Phrase>
               “The reason why developers like dark mode is because it is their
