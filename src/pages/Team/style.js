@@ -23,7 +23,7 @@ export const Top = styled.div`
 
 export const Mid = styled.div`
   width: 100%;
-  height: 1509px;
+  height: calc(100vh - 73px);
   position: relative;
   display: flex;
   justify-content: center;
@@ -80,7 +80,7 @@ export const MidTittle = styled.p`
   color: #fafafa;
   text-align: center;
   position: absolute;
-  top: 80px;
+  top: 120px;
   font-size: 36px;
   font-weight: 900;
 `;

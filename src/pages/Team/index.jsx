@@ -63,7 +63,7 @@ function Team() {
             name={data.name}
             major={data.major}
             color={data.color}
-            top={data.top}
+            top="578px"
             left={data.left}
           />
         ))}
