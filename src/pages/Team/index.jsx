@@ -6,7 +6,7 @@ import IntroductionBox from "@components/IntroductionBox";
 import { circleDataTeam } from "@data/circleDataTeam";
 import { circleDataIntroduction } from "@data/circleDataIntroduction";
 import { characterDataIntroduction } from "@data/characterDataIntroduction";
-import { introductionData } from "@data/IntroductionData";
+import { introductionData } from "@data/introductionData";
 import downarrow from "@assets/downarrow.svg";
 
 function Team() {
