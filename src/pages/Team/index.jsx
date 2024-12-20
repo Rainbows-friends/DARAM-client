@@ -13,8 +13,8 @@ import downarrow from "@assets/downarrow.svg";
 function Team() {
   let options = {
     anchors: ["top", "mid", "bottom"],
-    delay: 1000,
-    navigation: false,
+    delay: 1200,
+    navigation: true,
     verticalAlign: true,
     fitToSection: true,
   };
