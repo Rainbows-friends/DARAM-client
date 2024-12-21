@@ -9,7 +9,8 @@
       "@styles/*": ["styles/*"],
       "@api/*": ["api/*"],
       "@data/*": ["data/*"],
-      "@contexts/*": ["contexts/*"]
+      "@contexts/*": ["contexts/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["src"]
