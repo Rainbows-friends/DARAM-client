@@ -44,7 +44,7 @@ export const Bottom = styled.div`
 export const TextWrapper = styled.div`
   position: absolute;
   width: 1249px;
-  top: 320px;
+  top: 330px;
   left: 336px;
   display: flex;
   align-items: center;
@@ -95,6 +95,7 @@ export const PhraseWrapper = styled.div`
   width: 1030px;
   height: 172px;
   position: absolute;
+  top: 410px;
   left: calc((1920px - 1030px) / 2);
   display: flex;
   justify-content: center;
@@ -107,6 +108,7 @@ export const PhraseWrapper = styled.div`
 export const Phrase = styled.p`
   width: 828px;
   left: 545px;
+  top: 400px;
   color: #fafafa;
   font-size: 24px;
   font-weight: 900;
