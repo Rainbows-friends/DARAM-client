@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
 import * as S from "./style";
+
+import { useEffect, useState } from "react";
+
 import LoginModal from "@components/LoginModal";
+import { useAuth } from "@contexts/AuthContext";
 
 function CheckIn({ time, loading, error }) {
   const [showModal, setShowModal] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const renderTime = loading
     ? "로딩 중..."
@@ -16,6 +20,7 @@ function CheckIn({ time, loading, error }) {
   const handleLoginClick = () => {
     setShowModal(true);
   };
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
@@ -40,12 +45,14 @@ function CheckIn({ time, loading, error }) {
       <S.MyStatus>
         <S.RoomNumber>
           <S.Text fontSize="20px" fontWeight="500">
-            다람과 함께 하고 싶다면?
+            {isAuthenticated ? "환영합니다!" : "다람과 함께 하고 싶다면?"}
           </S.Text>
         </S.RoomNumber>
-        <S.LoginBtn onClick={handleLoginClick}>
-          <S.Text fontWeight="600">로그인</S.Text>
-        </S.LoginBtn>
+        {!isAuthenticated && (
+          <S.LoginBtn onClick={handleLoginClick}>
+            <S.Text fontWeight="600">로그인</S.Text>
+          </S.LoginBtn>
+        )}
       </S.MyStatus>
       {showModal && <LoginModal onClose={handleCloseModal} />}
     </S.Wrapper>
