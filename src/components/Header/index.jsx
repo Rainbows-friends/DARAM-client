@@ -1,5 +1,6 @@
-import { useLocation } from "react-router-dom";
 import * as S from "./style";
+
+import { useLocation } from "react-router-dom";
 
 function Header() {
   const location = useLocation();
@@ -7,7 +8,7 @@ function Header() {
   const links = [
     { path: "/home", label: "메인화면" },
     { path: "/checkin", label: "입실 현황" },
-    { path: "/noshow", label: "미입실자 현황" },
+    { path: "/noshow", label: "미입실 현황" },
     { path: "/team", label: "팀소개" },
   ];
 
