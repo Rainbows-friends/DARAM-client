@@ -1,18 +1,23 @@
-import CheckIn from "@components/CheckIn";
-import Dashboard from "@components/Dashboard";
-import Circle from "@components/Circle";
-import Character from "@components/Character";
+import * as S from "./style";
+
 import { useEffect, useState } from "react";
+
+import Character from "@components/Character";
+import CheckIn from "@components/CheckIn";
+import Circle from "@components/Circle";
+import Dashboard from "@components/Dashboard";
+import Header from "@components/Header";
+import axios from "axios";
 import { characterData } from "@data/characterData";
 import { circleDataHome } from "@data/circleDataHome";
-import axios from "axios";
-import * as S from "./style";
-import Header from "@components/Header";
+import { useAuth } from "@contexts/AuthContext";
 
 function Home() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [userData, setUserData] = useState({});
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     async function fetchData() {
@@ -22,7 +27,7 @@ function Home() {
         );
         setData(response.data);
       } catch (error) {
-        setError("Failed to load data");
+        setError("데이터 로드 실패");
       } finally {
         setLoading(false);
       }
@@ -37,11 +42,39 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      async function fetchUserName() {
+        try {
+          const accessToken = localStorage.getItem("accessToken");
+          const response = await axios.get(
+            import.meta.env.VITE_USER_DATA_API_URL,
+            {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+          setUserData(response.data);
+        } catch (error) {
+          console.error("사용자 정보를 가져오지 못했습니다: ", error);
+        }
+      }
+
+      fetchUserName();
+    }
+  }, [isAuthenticated]);
+
   return (
     <S.Wrapper>
       <Header />
       <S.Container>
-        <CheckIn time={data} loading={loading} error={error} />
+        <CheckIn
+          time={data}
+          loading={loading}
+          error={error}
+          userData={userData}
+        />
         <Dashboard />
       </S.Container>
       {circleDataHome.map((circle, index) => (
