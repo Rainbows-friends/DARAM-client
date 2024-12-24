@@ -62,3 +62,7 @@ export const Shadow = styled.div`
   bottom: 0px;
   background: linear-gradient(180deg, rgba(37, 37, 37, 0) 0%, #252525 100%);
 `;
+
+export const Text = styled.p`
+  font-size: 20px;
+`;

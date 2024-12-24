@@ -1,8 +1,22 @@
-import SearchIcon from "@assets/search.svg";
 import * as S from "./style";
-import Member from "@components/Member";
 
-function FloorStatus({ floor, noshow, room, name, time }) {
+import { useEffect, useState } from "react";
+
+import Member from "@components/Member";
+import SearchIcon from "@assets/search.svg";
+
+function FloorStatus({ floor, noshow, students, loading, error }) {
+  const [filteredStudents, setFilteredStudents] = useState([]);
+
+  function filterByFloor(students, floor) {
+    return students ? students.filter((item) => item.user.floor === floor) : [];
+  }
+
+  useEffect(() => {
+    const result = filterByFloor(students, floor);
+    setFilteredStudents(result);
+  }, [floor, students]);
+
   return (
     <S.Wrapper>
       <S.Floor>
@@ -17,7 +31,20 @@ function FloorStatus({ floor, noshow, room, name, time }) {
         <img src={SearchIcon} alt="Search Icon" />
       </S.SearchBox>
       <S.MemberBox>
-        <Member room={room} name={name} time={time} />
+        {loading ? (
+          <S.Text>로딩 중...</S.Text>
+        ) : error ? (
+          <S.Text>서버 에러</S.Text>
+        ) : (
+          filteredStudents.map((student) => (
+            <Member
+              key={student.id}
+              room={student.user.room}
+              name={student.user.name}
+              time={student.checkinDate}
+            />
+          ))
+        )}
       </S.MemberBox>
       <S.Shadow />
     </S.Wrapper>
