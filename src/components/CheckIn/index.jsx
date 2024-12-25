@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import LoginModal from "@components/LoginModal";
 import { useAuth } from "@contexts/AuthContext";
 
-function CheckIn({ time, loading, error }) {
+function CheckIn({ time, loading, error, userData }) {
   const [showModal, setShowModal] = useState(false);
   const { isAuthenticated } = useAuth();
 
@@ -44,14 +44,27 @@ function CheckIn({ time, loading, error }) {
       </div>
       <S.MyStatus>
         <S.RoomNumber>
-          <S.Text fontSize="20px" fontWeight="500">
-            {isAuthenticated ? "환영합니다!" : "다람과 함께 하고 싶다면?"}
-          </S.Text>
+          {isAuthenticated ? (
+            <>
+              <S.Text fontSize="20px" fontWeight="600">
+                {userData.grade}
+                {userData.classNum}
+                {userData.number} {userData.name}
+              </S.Text>
+              <S.Text fontSize="14px">{userData.room}호</S.Text>
+            </>
+          ) : (
+            <S.Text fontSize="20px" fontWeight="600">
+              다람과 함께 하고 싶다면?
+            </S.Text>
+          )}
         </S.RoomNumber>
-        {!isAuthenticated && (
+        {!isAuthenticated ? (
           <S.LoginBtn onClick={handleLoginClick}>
             <S.Text fontWeight="600">로그인</S.Text>
           </S.LoginBtn>
+        ) : (
+          <S.Text>나의 지각 횟수: {userData.lateNumber}회</S.Text>
         )}
       </S.MyStatus>
       {showModal && <LoginModal onClose={handleCloseModal} />}
