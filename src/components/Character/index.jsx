@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import * as S from "./style";
 
-const Character = ({ src, alt, initialTop, initialLeft }) => {
+const Character = ({ src, alt, drag, initialTop, initialLeft, width }) => {
   const remToPx = (rem) =>
     parseFloat(rem) *
     parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -71,9 +71,10 @@ const Character = ({ src, alt, initialTop, initialLeft }) => {
         left: position.x,
         top: position.y,
         cursor: isDragging ? "grabbing" : "grab",
+        width: width,
       }}
-      onMouseDown={handleMouseDown}
-      onDragStart={handleDragStart} // 드래그 이벤트 비활성화
+      onMouseDown={drag ? handleMouseDown : null}
+      onDragStart={drag ? handleDragStart : null} // 드래그 이벤트 비활성화
     />
   );
 };

@@ -1,8 +1,10 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "@contexts/AuthContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const saveTokensToLocalStorage = ({
   accessToken,
@@ -20,6 +22,7 @@ const saveTokensToLocalStorage = ({
 
 function Callback() {
   const navigate = useNavigate();
+  const { setIsAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleLogin = async () => {
@@ -39,12 +42,11 @@ function Callback() {
           { headers: { "Content-Type": "application/json" } }
         );
 
-        console.log("Response data:", response);
-
         const tokens = response.data;
 
         if (tokens.accessToken && tokens.refreshToken) {
           saveTokensToLocalStorage(tokens);
+          setIsAuthenticated(true);
           toast.success("로그인 되었습니다.");
           navigate("/home");
         } else {
@@ -63,7 +65,7 @@ function Callback() {
     };
 
     handleLogin();
-  }, [navigate]);
+  }, [navigate, setIsAuthenticated]);
 
   return <div>로그인 처리 중입니다...</div>;
 }

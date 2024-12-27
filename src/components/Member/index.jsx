@@ -6,7 +6,7 @@ function Member({ room, name, time }) {
       <S.RoomAndName>
         {room}호 {name}
       </S.RoomAndName>
-      <S.Time>{time}</S.Time>
+      {time ? <S.Time>{time}</S.Time> : null}
     </S.Wrapper>
   );
 }

@@ -13,6 +13,8 @@ export default defineConfig({
       { find: "@styles", replacement: "/src/styles" },
       { find: "@api", replacement: "/src/api" },
       { find: "@data", replacement: "/src/data" },
+      { find: "@contexts", replacement: "/src/contexts" },
+      { find: "@utils", replacement: "/src/utils" },
     ],
   },
 });
