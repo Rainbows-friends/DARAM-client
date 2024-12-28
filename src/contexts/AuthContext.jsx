@@ -1,16 +1,15 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { setupAxiosInterceptors } from "../utils/authUtils";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("accessToken")
+  );
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     setIsAuthenticated(!!accessToken);
-
-    setupAxiosInterceptors(setIsAuthenticated);
   }, []);
 
   const value = {
@@ -24,7 +23,7 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error("useAuth는 AuthProvider 내에서 사용해야 합니다.");
   }
   return context;
 };
