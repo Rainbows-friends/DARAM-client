@@ -2,12 +2,21 @@ import * as S from "./style";
 
 import { useEffect, useState } from "react";
 
-function EditStatusModal({ member, onClose, noshow }) {
+function EditStatusModal({ member, onClose, noshow: initialNoshow }) {
   const [room, setRoom] = useState("");
+  const [noshow, setNoshow] = useState(initialNoshow);
 
   useEffect(() => {
     if (member) setRoom(member.user.room + "호");
   }, [member]);
+
+  const handleCheckInClick = () => {
+    setNoshow(false);
+  };
+
+  const handleNoShowClick = () => {
+    setNoshow(true);
+  };
 
   const handleBackgroundClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -36,10 +45,18 @@ function EditStatusModal({ member, onClose, noshow }) {
           <S.MidItemContainer>
             <S.InputTitle>입실 현황 수정</S.InputTitle>
             <S.ButtonBox>
-              <S.CheckInBtn width="67px" opacity={noshow ? 0.4 : 1}>
+              <S.CheckInBtn
+                width="67px"
+                opacity={noshow ? 0.4 : 1}
+                onClick={handleCheckInClick}
+              >
                 입실
               </S.CheckInBtn>
-              <S.CheckInBtn width="80px" opacity={noshow ? 1 : 0.4}>
+              <S.CheckInBtn
+                width="80px"
+                opacity={noshow ? 1 : 0.4}
+                onClick={handleNoShowClick}
+              >
                 미입실
               </S.CheckInBtn>
             </S.ButtonBox>
