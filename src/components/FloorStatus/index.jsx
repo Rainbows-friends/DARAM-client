@@ -62,7 +62,11 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
       </S.MemberBox>
       {/* <S.Shadow /> */}
       {isModalOpen && (
-        <EditStatusModal member={selectedMember} onClose={closeModal} />
+        <EditStatusModal
+          member={selectedMember}
+          onClose={closeModal}
+          noshow={noshow}
+        />
       )}
     </S.Wrapper>
   );

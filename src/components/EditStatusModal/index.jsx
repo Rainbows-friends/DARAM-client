@@ -1,8 +1,8 @@
 import * as S from "./style";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-function EditStatusModal({ member, onClose }) {
+function EditStatusModal({ member, onClose, noshow }) {
   const [room, setRoom] = useState("");
 
   useEffect(() => {
@@ -36,10 +36,12 @@ function EditStatusModal({ member, onClose }) {
           <S.MidItemContainer>
             <S.InputTitle>입실 현황 수정</S.InputTitle>
             <S.ButtonBox>
-              <S.CheckInBtn width="67px" opacity={0.4}>
+              <S.CheckInBtn width="67px" opacity={noshow ? 0.4 : 1}>
                 입실
               </S.CheckInBtn>
-              <S.CheckInBtn width="80px">미입실</S.CheckInBtn>
+              <S.CheckInBtn width="80px" opacity={noshow ? 1 : 0.4}>
+                미입실
+              </S.CheckInBtn>
             </S.ButtonBox>
           </S.MidItemContainer>
           <S.MidItemContainer>
