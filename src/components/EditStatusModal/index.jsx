@@ -4,12 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 function EditStatusModal({ member, onClose }) {
   const [room, setRoom] = useState("");
-  const inputRef = useRef(null);
 
   useEffect(() => {
-    if (member) {
-      setRoom(member.user.room + "호");
-    }
+    if (member) setRoom(member.user.room + "호");
   }, [member]);
 
   const handleBackgroundClick = (e) => {
@@ -32,7 +29,7 @@ function EditStatusModal({ member, onClose }) {
       <S.Container>
         <S.Top>
           <S.Student>
-            {room} {member.user.name}
+            {member.user.room}호 {member.user.name}
           </S.Student>
         </S.Top>
         <S.Mid>
@@ -49,7 +46,6 @@ function EditStatusModal({ member, onClose }) {
             <S.InputTitle>호실 수정</S.InputTitle>
             <S.EditRoomBox>
               <S.EditRoomInput
-                ref={inputRef}
                 value={room}
                 onChange={handleRoomChange}
                 maxLength={4}
