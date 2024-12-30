@@ -34,8 +34,11 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
   }
 
   const handleMemberClick = (member) => {
-    setSelectedMember(member);
-    setIsModalOpen(true);
+    const userRole = localStorage.getItem("role");
+    if (userRole !== '"USER"') {
+      setSelectedMember(member);
+      setIsModalOpen(true);
+    }
   };
 
   const closeModal = () => {
