@@ -66,13 +66,3 @@ function NoShow() {
 }
 
 export default NoShow;
-
-// {circleDataHome.map((circle, index) => (
-//   <Circle
-//     key={index}
-//     size={circle.size}
-//     color={circle.color}
-//     top={circle.top}
-//     left={circle.left}
-//   />
-// ))}

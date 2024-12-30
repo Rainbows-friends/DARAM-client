@@ -29,17 +29,17 @@ function App() {
           <Route
             path="/checkin"
             element={
-              <ProtectedRoute>
-                <CheckIn />
-              </ProtectedRoute>
+              // <ProtectedRoute>
+              <CheckIn />
+              // </ProtectedRoute>
             }
           />
           <Route
             path="/noshow"
             element={
-              <ProtectedRoute>
-                <NoShow />
-              </ProtectedRoute>
+              // <ProtectedRoute>
+              <NoShow />
+              // </ProtectedRoute>
             }
           />
           <Route path="/Team" element={<Team />} />

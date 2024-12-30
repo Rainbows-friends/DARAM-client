@@ -44,7 +44,11 @@ function CheckIn({ time, loading, error, userData }) {
       </div>
       <S.MyStatus>
         <S.RoomNumber>
-          {isAuthenticated ? (
+          {loading ? (
+            <S.Text fontSize="20px" fontWeight="600">
+              로딩 중...
+            </S.Text>
+          ) : isAuthenticated && userData.name ? (
             <>
               <S.Text fontSize="20px" fontWeight="600">
                 {userData.grade}
@@ -59,12 +63,12 @@ function CheckIn({ time, loading, error, userData }) {
             </S.Text>
           )}
         </S.RoomNumber>
-        {!isAuthenticated ? (
+        {!isAuthenticated && !loading && !userData.name ? (
           <S.LoginBtn onClick={handleLoginClick}>
             <S.Text fontWeight="600">로그인</S.Text>
           </S.LoginBtn>
         ) : (
-          <S.Text>나의 지각 횟수: {userData.lateNumber}회</S.Text>
+          !loading && <S.Text>나의 지각 횟수: {userData.lateNumber}회</S.Text>
         )}
       </S.MyStatus>
       {showModal && <LoginModal onClose={handleCloseModal} />}

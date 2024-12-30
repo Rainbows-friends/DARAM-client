@@ -28,6 +28,7 @@ function Home() {
         setData(response.data);
       } catch (error) {
         setError("데이터 로드 실패");
+        clearInterval(interval);
       } finally {
         setLoading(false);
       }
@@ -44,24 +45,21 @@ function Home() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      async function fetchUserName() {
+      async function fetchUserData() {
         try {
           const accessToken = localStorage.getItem("accessToken");
           const response = await axios.get(
             import.meta.env.VITE_USER_DATA_API_URL,
-            {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            }
+            { headers: { Authorization: `Bearer ${accessToken}` } }
           );
           setUserData(response.data);
         } catch (error) {
           console.error("사용자 정보를 가져오지 못했습니다: ", error);
+          localStorage.clear(); // 로컬 스토리지 비우기
         }
       }
 
-      fetchUserName();
+      fetchUserData();
     }
   }, [isAuthenticated]);
 
