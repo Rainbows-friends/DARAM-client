@@ -51,9 +51,9 @@ function CheckIn({ time, loading, error, userData }) {
           ) : isAuthenticated && userData.name ? (
             <>
               <S.Text fontSize="20px" fontWeight="600">
-                Number({userData.grade}
+                {userData.grade}
                 {userData.classNum}
-                {userData.number.toString().padStart(2, "0")}) {userData.name}
+                {userData.number.toString().padStart(2, "0")} {userData.name}
               </S.Text>
               <S.Text fontSize="14px">{userData.room}호</S.Text>
             </>
