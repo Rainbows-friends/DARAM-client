@@ -13,9 +13,17 @@ function NoShow() {
 
   useEffect(() => {
     async function fetchData() {
+      const accessToken = localStorage.getItem("accessToken");
+
       try {
         const response = await axios.get(
-          import.meta.env.VITE_NOSHOW_MEMBER_API_URL
+          import.meta.env.VITE_NOSHOW_MEMBER_API_URL,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+            },
+          }
         );
         setData(response.data);
       } catch (error) {
