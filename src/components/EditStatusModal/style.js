@@ -18,6 +18,7 @@ export const Container = styled.div`
   flex-direction: column;
   background-color: #252525;
   border-radius: 20px;
+  position: relative;
 `;
 
 export const Top = styled.div`
@@ -30,6 +31,17 @@ export const Top = styled.div`
 export const Student = styled.p`
   font-size: 24px;
   font-weight: 600;
+`;
+
+export const CancelBtn = styled.img`
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const Mid = styled.div`
@@ -106,5 +118,6 @@ export const SubmitBtn = styled.button`
   color: #fafafa;
   font-size: 20px;
   font-weight: 600;
-  cursor: pointer;
+  opacity: ${(props) => (props.isModified ? 1 : 0.7)};
+  cursor: ${(props) => (props.isModified ? "pointer" : "not-allowed")};
 `;
