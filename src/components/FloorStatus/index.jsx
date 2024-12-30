@@ -8,11 +8,31 @@ import SearchIcon from "@assets/search.svg";
 
 function FloorStatus({ floor, noshow, students, loading, error }) {
   const [filteredStudents, setFilteredStudents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
 
   function filterByFloor(students, floor) {
     return students ? students.filter((item) => item.user.floor === floor) : [];
+  }
+
+  function filterBySearch(students, searchTerm) {
+    if (!searchTerm) return students;
+
+    const loweredSearchTerm = searchTerm.toLowerCase().trim();
+
+    return students.filter((student) => {
+      // 방 호수 검색 (문자열로 변환하여 포함 여부 확인)
+      const roomMatch = student.user.room
+        .toString()
+        .includes(loweredSearchTerm);
+      // 이름 검색
+      const nameMatch = student.user.name
+        .toLowerCase()
+        .includes(loweredSearchTerm);
+
+      return roomMatch || nameMatch;
+    });
   }
 
   const handleMemberClick = (member) => {
@@ -25,10 +45,16 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
     setSelectedMember(null);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   useEffect(() => {
-    const result = filterByFloor(students, floor);
-    setFilteredStudents(result);
-  }, [floor, students]);
+    // 먼저 층으로 필터링한 다음, 검색어로 다시 필터링
+    const floorFiltered = filterByFloor(students, floor);
+    const searchFiltered = filterBySearch(floorFiltered, searchTerm);
+    setFilteredStudents(searchFiltered);
+  }, [floor, students, searchTerm]); // searchTerm을 dependency에 추가
 
   return (
     <S.Wrapper>
@@ -40,6 +66,8 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
           placeholder="방 호수, 이름 등을 검색해보세요"
           type="text"
           maxLength={10}
+          value={searchTerm}
+          onChange={handleSearchChange}
         />
         <img src={SearchIcon} alt="Search Icon" />
       </S.SearchBox>
@@ -48,6 +76,8 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
           <S.Text>로딩 중...</S.Text>
         ) : error ? (
           <S.Text>서버 에러</S.Text>
+        ) : filteredStudents.length === 0 ? (
+          <S.Text>검색 결과가 없습니다.</S.Text>
         ) : (
           filteredStudents.map((student) => (
             <Member
@@ -60,7 +90,6 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
           ))
         )}
       </S.MemberBox>
-      {/* <S.Shadow /> */}
       {isModalOpen && (
         <EditStatusModal
           member={selectedMember}
