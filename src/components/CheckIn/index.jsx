@@ -26,15 +26,13 @@ function CheckIn({ time, loading, error, userData }) {
   };
 
   useEffect(() => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = showModal ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showModal]);
+
+  const isUserLoaded = isAuthenticated && userData?.name;
 
   return (
     <S.Wrapper>
@@ -48,7 +46,7 @@ function CheckIn({ time, loading, error, userData }) {
             <S.Text fontSize="20px" fontWeight="600">
               로딩 중...
             </S.Text>
-          ) : isAuthenticated && userData.name ? (
+          ) : isUserLoaded ? (
             <>
               <S.Text fontSize="20px" fontWeight="600">
                 {userData.grade}
@@ -63,12 +61,14 @@ function CheckIn({ time, loading, error, userData }) {
             </S.Text>
           )}
         </S.RoomNumber>
-        {!isAuthenticated && !loading && !userData.name ? (
+        {!isUserLoaded && !loading ? (
           <S.LoginBtn onClick={handleLoginClick}>
             <S.Text fontWeight="600">로그인</S.Text>
           </S.LoginBtn>
         ) : (
-          !loading && <S.Text>나의 지각 횟수: {userData.lateNumber}회</S.Text>
+          isUserLoaded && (
+            <S.Text>나의 지각 횟수: {userData.lateNumber}회</S.Text>
+          )
         )}
       </S.MyStatus>
       {showModal && <LoginModal onClose={handleCloseModal} />}
