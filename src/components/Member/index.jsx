@@ -1,8 +1,8 @@
 import * as S from "./style";
 
-function Member({ room, name, time }) {
+function Member({ room, name, time, onClick }) {
   return (
-    <S.Wrapper>
+    <S.Wrapper onClick={onClick}>
       <S.RoomAndName>
         {room}호 {name}
       </S.RoomAndName>

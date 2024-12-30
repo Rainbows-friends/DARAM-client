@@ -28,6 +28,7 @@ function Home() {
         setData(response.data);
       } catch (error) {
         setError("데이터 로드 실패");
+        clearInterval(interval);
       } finally {
         setLoading(false);
       }
