@@ -22,11 +22,9 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
     const loweredSearchTerm = searchTerm.toLowerCase().trim();
 
     return students.filter((student) => {
-      // 방 호수 검색 (문자열로 변환하여 포함 여부 확인)
       const roomMatch = student.user.room
         .toString()
         .includes(loweredSearchTerm);
-      // 이름 검색
       const nameMatch = student.user.name
         .toLowerCase()
         .includes(loweredSearchTerm);
@@ -50,11 +48,12 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
   };
 
   useEffect(() => {
-    // 먼저 층으로 필터링한 다음, 검색어로 다시 필터링
     const floorFiltered = filterByFloor(students, floor);
     const searchFiltered = filterBySearch(floorFiltered, searchTerm);
     setFilteredStudents(searchFiltered);
-  }, [floor, students, searchTerm]); // searchTerm을 dependency에 추가
+  }, [floor, students, searchTerm]);
+
+  const hasStudents = filterByFloor(students, floor).length > 0;
 
   return (
     <S.Wrapper>
@@ -76,6 +75,8 @@ function FloorStatus({ floor, noshow, students, loading, error }) {
           <S.Text>로딩 중...</S.Text>
         ) : error ? (
           <S.Text>서버 에러</S.Text>
+        ) : !hasStudents ? (
+          <></> // 입실 인원이 없을 때는 아무것도 표시하지 않음
         ) : filteredStudents.length === 0 ? (
           <S.Text>검색 결과가 없습니다.</S.Text>
         ) : (
